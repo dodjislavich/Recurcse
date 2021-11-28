@@ -1,0 +1,79 @@
+program A117; //вычисляет НОД двух натуральных чисел
+
+function NOD(a, b: integer): integer;
+
+begin
+
+if (a = 0) or (b = 0) then 
+    begin
+  
+    NOD:= a +b ;
+    
+    exit
+    
+    end;
+  
+if a > b then
+  
+       NOD:= NOD(a - b, b)
+       
+  else NOD:= NOD(a, b - a)
+  
+end;
+
+var a,b,c :integer;
+
+begin
+
+    read (a,b);
+    
+    writeln(NOD (a,b))
+    
+end.
+
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+
+program B117; //раскладывает число на простые сомножители.   
+
+function mnoz(a :integer): integer;
+
+var i,k :integer;
+
+begin
+
+    i := 2;
+    
+    while i*i <= a do begin
+    
+      if a mod i = 0 then begin
+      
+        writeln(i);
+        
+        mnoz (a div i);
+        
+        exit
+        
+        end;
+        
+      i:=i+1;
+      
+    end;
+    
+    if a > 1 then writeln (a);
+    
+end;
+
+var a,b,c :integer;
+
+begin
+
+    read (a);
+    
+    mnoz(a);
+    
+end.
+
+
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+
+
